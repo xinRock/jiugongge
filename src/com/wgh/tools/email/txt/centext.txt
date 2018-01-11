@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>邮箱验证信息</title>
+</head>
+<style type="text/css">
+a:link {color: red;}
+a:visited {color: #FA8072;}
+a:hover {color:#FFD700;}
+a:active {color:#98FB98;}
+</style>
+<body>
+<input type="hidden">
+	<table align="center">
+	    <tr align="left">
+	        <td>
+	            <h3>请点击下面连接激活</h3>
+	        </td>
+	    </tr>
+	    <tr>
+	        <td>
+	            <h3 >
+	                <a href="http://39.106.140.18:8080/jiugongge/DiaryServlet?action=emailActive">
+					点击我就可以跳回激活页面！
+	                </a>
+	            </h3>
+	        </td>
+	    </tr>
+	</table>
+</body>
+</html>
