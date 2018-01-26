@@ -7,8 +7,9 @@ public class Animor {
 		System.out.println(
 				"sdds");
 		
-		
-		System.out.println("");
+		System.out.println("fdas");
+		System.out.println("fdas");
+		System.err.println("fdas");
 	}
 	
 }
