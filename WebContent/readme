@@ -1,0 +1,20 @@
+CREATE TABLE `tb_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `pwd` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `question` varchar(255) DEFAULT NULL,
+  `answer` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `tb_diary` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `writeTime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `userid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
