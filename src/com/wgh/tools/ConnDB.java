@@ -15,12 +15,13 @@ public class ConnDB {
 
 	public ConnDB() { // 构造方法
 		try { // 捕捉异常
-			// 将Properties文件读取到InputStream对象中
+				// 将Properties文件读取到InputStream对象中
 			InputStream in = getClass().getResourceAsStream(propFileName);
 			prop.load(in); // 通过输入流对象加载Properties文件
 			dbClassName = prop.getProperty("DB_CLASS_NAME"); // 获取数据库驱动
 			// 获取连接的URL
 			dbUrl = prop.getProperty("DB_URL", dbUrl);
+			System.out.println("dbUrl===" + dbUrl);
 		} catch (Exception e) {
 			e.printStackTrace(); // 输出异常信息
 		}
@@ -40,9 +41,8 @@ public class ConnDB {
 			ee.printStackTrace(); // 输出异常信息
 		}
 		if (conn == null) {
-			System.err
-					.println("警告: DbConnectionManager.getConnection() 获得数据库链接失败.\r\n\r\n链接类型:"
-							+ dbClassName + "\r\n链接位置:" + dbUrl); // 在控制台上输出提示信息
+			System.err.println("警告: DbConnectionManager.getConnection() 获得数据库链接失败.\r\n\r\n链接类型:" + dbClassName
+					+ "\r\n链接位置:" + dbUrl); // 在控制台上输出提示信息
 		}
 		return conn; // 返回数据库连接对象
 	}
@@ -53,8 +53,7 @@ public class ConnDB {
 	public ResultSet executeQuery(String sql) {
 		try { // 捕捉异常
 			conn = getConnection(); // 调用getConnection()方法构造Connection对象的一个实例conn
-			stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
-					ResultSet.CONCUR_READ_ONLY);
+			stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			rs = stmt.executeQuery(sql);
 		} catch (SQLException ex) {
 			System.err.println(ex.getMessage()); // 输出异常信息
@@ -69,8 +68,7 @@ public class ConnDB {
 		int result = 0; // 定义保存返回值的变量
 		try { // 捕捉异常
 			conn = getConnection(); // 调用getConnection()方法构造Connection对象的一个实例conn
-			stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
-					ResultSet.CONCUR_READ_ONLY);
+			stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			result = stmt.executeUpdate(sql); // 执行更新操作
 		} catch (SQLException ex) {
 			result = 0; // 将保存返回值的变量赋值为0

@@ -148,7 +148,7 @@ public class UserServlet extends HttpServlet {
 		String username = request.getParameter("user"); // 获取用户名
 		String pwd = request.getParameter("pwd"); // 获取密码
 		String email = request.getParameter("email"); // 获取E-mail地址
-		EmailUtil.sendEmail(email, "123456");//TODO
+		//EmailUtil.sendEmail(email, "123456");//TODO
 		String city = request.getParameter("city"); // 获取市县
 		String question = request.getParameter("question"); // 获取密码提示问题
 		String answer = request.getParameter("answer"); // 获取密码提示问题答案
@@ -207,7 +207,7 @@ public class UserServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String result = "";
 		String selProvince = request.getParameter("parProvince"); // 获取选择的省份
-		selProvince = new String(selProvince.getBytes("ISO-8859-1"), "GBK");
+		selProvince = new String(selProvince.getBytes("ISO-8859-1"), "utf-8");
 		CityMap cityMap = new CityMap(); // 实例化保存省份信息的CityMap类的实例
 		Map<String, String[]> map = cityMap.model; // 获取省份信息保存到Map中
 		String[] arrCity = map.get(selProvince); // 获取指定键的值

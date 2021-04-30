@@ -44,6 +44,7 @@ public class DiaryServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
+		System.out.println("active=" + action);
 		if ("preview".equals(action)) {
 			preview(request, response); // 预览九宫格日记
 		} else if ("save".equals(action)) {
